@@ -15,17 +15,17 @@ This bot is coded in **Python**, so that is required to run it. As well as that,
 ### Windows
 1. Install [Git for Windows](https://git-for-windows.github.io/)
 2. Open Git Bash (right-click in a folder, select `Git Bash` or `Git Bash Here`)
-3. Run `git clone https://github.com/jaydenkieran/Turbo.git -b master`
+3. Run `git clone https://github.com/conneritayi/Turbo.git -b master`
 4. Open `updatedeps-win.bat` in the new folder
 
 ### Linux
 1. Install Git using `sudo apt-get install git` (`apt-get` may be substituted for a different package manager on your system)
-2. Run `git clone https://github.com/jaydenkieran/Turbo.git -b master`
+2. Run `git clone https://github.com/conneritayi/Turbo.git -b master`
 3. Run `updatedeps-linux.sh` in the new folder
 
 ### Mac
 1. Install Git using Homebrew: `brew install git`
-2. Run `git clone https://github.com/jaydenkieran/Turbo.git -b master` in Terminal
+2. Run `git clone https://github.com/conneritayi/Turbo.git -b master` in Terminal
 3. Run `updatedeps-mac.command` in the new folder
 
 ## Configuration
