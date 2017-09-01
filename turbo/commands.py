@@ -270,39 +270,6 @@ class Commands:
             return Response(":warning: No names with the discriminator `{}`".format(discrim), delete=10)
         return Response(":crayon: Names using `{}`\n`{}`".format(discrim, '`, `'.join(has_discrim)))
 
-    @requires_selfbot
-    async def c_changediscrim(self, author):
-        """
-        Changes the user's discriminator
-
-        {prefix}changediscrim
-
-        It achieves this by changing your Discord username
-        Discord name changes are limited to 2 per hour
-        """
-        if not self.config.password:
-            return Response(":warning: This command only works when Password is set in the config", delete=10)
-        if not self.can_change_name:
-            return Response(":warning: This command cannot be used yet. It has not been 1 hour since last usage", delete=10)
-        has_discrim = list(set([x.name for x in self.bot.get_all_members(
-        ) if x.discriminator == author.discriminator and x.name != author.name]))
-        if not has_discrim:
-            return Response(":warning: No names with the discriminator `{}`".format(author.discriminator), delete=10)
-        name = random.choice(has_discrim)
-        log.debug(
-            "Changing name from {} to {}".format(self.bot.user.name, name))
-        try:
-            await self.bot.edit_profile(password=self.config.password, username=name)
-        except discord.HTTPException as e:
-            log.error(e)
-            return Response(":warning: There was a problem. The password in the config may be invalid.", delete=10)
-        await asyncio.sleep(3)  # Allow time for websocket event
-        log.debug(
-            "Discriminator: {} -> {}".format(author.discriminator, self.bot.user.discriminator))
-        if self.config.discrimrevert:
-            await self.bot.edit_profile(password=self.config.password, username=author.name)
-            asyncio.ensure_future(self._discrim_timer())
-        return Response(":thumbsup: Changed from `{}` -> `{}`".format(author.discriminator, self.bot.user.discriminator), delete=60)
 
     async def c_tags(self):
         """
