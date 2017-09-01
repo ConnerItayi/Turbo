@@ -67,7 +67,6 @@ Command | Usage | SB<sup>1</sup> | DB<sup>2</sup> | C<sup>3</sup>
 `snowflake [id/@user/#channel/emote/@role]` | Get the time created of a snowflake<sup>4</sup> |||
 `status [status]` | Changes the user/bot's status, or clears it |||
 `discrim [discrim]` | Return a list of visible users with matching discriminator |||
-`changediscrim` | Change the user's discriminator | Yes ||
 `tags` | Lists all tags || Yes |
 `createtag <"name"> <"content">` | Adds a new tag with a given name and content || Yes |
 `deletetag <"name">` | Deletes a tag || Yes |
